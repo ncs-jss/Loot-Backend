@@ -91,7 +91,7 @@ UserSchema.methods.toJSON=function(){
 	var user=this;
 	var  userObject= user.toObject();
 
-	return _.pick(userObject,['reference_token','name','admission_no','email','contact_number','username','score','stage','mission_state','duel_lost','duel_won','drop_count','avatar_id']); 
+	return _.pick(userObject,['reference_token','name','admission_no','email','contact_number','username','score','stage','mission_state','duel_lost','duel_won','drop_count','avatar_id','fcm_token']); 
 }
 
 // UserSchema.statics.findByCredentials=function(phone,password){
