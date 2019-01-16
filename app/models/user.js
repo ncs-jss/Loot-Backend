@@ -44,11 +44,11 @@ var UserSchema = new Schema({
 	duel_won :{
 		type: Number,
 		default:0
-	}
+	},
 	duel_lost :{
 		type: Number,
 		default:0
-	}
+	},
 	username :{
 		type: String,
 		required: true,
@@ -67,7 +67,7 @@ var UserSchema = new Schema({
 	drop_count :{
 		type: Number,
 		default:0
-	}
+	},
 	payment:Boolean
 });
 
