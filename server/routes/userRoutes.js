@@ -114,14 +114,10 @@ router.route('/:id')
 	.get(async function(req,res){
 		var reference_token=req.params.id;
 		console.log(reference_token);
-		if(reference_token==null){
-			var users=await User.findAll();
-			res.send(users);	
-		}
-		else{
+		
 			var user=await User.findOne({reference_token});
 			res.send(user);
-		}
+		
 	});
 
 	router.route('/:id/edit')

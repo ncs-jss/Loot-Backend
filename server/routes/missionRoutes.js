@@ -75,7 +75,7 @@ router.route('/:id')
 */
 	.get(async function(req,res){
 		var id=req.params.id;
-		var mission=await Mission.find({id});
+		var mission=await Mission.findOne({id});
 		res.send(mission);
 	});
 
