@@ -31,23 +31,23 @@ var UserSchema = new Schema({
 		trim: true
 	},
 	mission_state :{
-		type: Boolean
+		type: String
 	},
 	score :{
-		type: Number,
-		default:0
+		type: String,
+		default:"0"
 	},
 	stage :{
-		type: Number,
-		default:0
+		type: String,
+		default:"0"
 	},
 	duel_won :{
-		type: Number,
-		default:0
+		type: String,
+		default:"0"
 	},
 	duel_lost :{
-		type: Number,
-		default:0
+		type: String,
+		default:"0"
 	},
 	username :{
 		type: String,
@@ -55,7 +55,7 @@ var UserSchema = new Schema({
 		minlength: 1
 	},
 	contact_number :{
-		type: Number,
+		type: String,
 		required: true,
 		unique: true
 	},
@@ -65,7 +65,7 @@ var UserSchema = new Schema({
 		unique: true
 	},
 	drop_count :{
-		type: Number,
+		type: String,
 		default:0
 	},
 	payment:Boolean

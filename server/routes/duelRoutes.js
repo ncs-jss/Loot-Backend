@@ -56,7 +56,7 @@ router.route('/')
 		duel.id=duel._id;
 		var challenger=await User.findOne({reference_token:duel.challenger_rt});
 		var opponent=await User.findOne({reference_token:duel.opponent_rt});
-		if(parseInt(duel.stake)>challenger.score||parseInt(duel.stake)>opponent.score||parseInt(duel.stake)<=0){
+		if(parseInt(duel.stake)>parseInt(challenger.score)||parseInt(duel.stake)>parseInt(opponent.score)||parseInt(duel.stake)<=0){
 			return res.status(404).send("Invalid Stake");
 		}
 		else{
@@ -97,10 +97,10 @@ router.route('/:id/edit')
 				var challenger=await User.findOne({reference_token:duel.challenger_rt});
 				var opponent=await User.findOne({reference_token:duel.opponent_rt});				
 				if(challenger_tap_count>opponent_tap_count){
-					challenger.score+=parseInt(duel.stake);
-					challenger.duel_won+=1;
-					opponent.score-=parseInt(duel.stake);
-					opponent.duel_lost+=1;
+					challenger.score=parseInt(challenger.score)+parseInt(duel.stake);
+					challenger.duel_won=parseInt(challenger.duel_won)+1;
+					opponent.score=parseInt(opponent.score)-parseInt(duel.stake);
+					opponent.duel_lost=parseInt(opponent.duel_lost)+1;
 					duel.winner=challenger.reference_token;
 
 					//FCM to users
@@ -119,10 +119,10 @@ router.route('/:id/edit')
 
 				}
 				else if(opponent_tap_count>challenger_tap_count){
-					challenger.score-=parseInt(duel.stake);
-					challenger.duel_lost+=1;
-					opponent.duel_won+=1;
-					opponent.score+=parseInt(duel.stake);
+					challenger.score=parseInt(challenger.score)-parseInt(duel.stake);
+					challenger.duel_lost=parseInt(challenger.duel_lost)+1;
+					opponent.score=parseInt(opponent.score)+parseInt(duel.stake);
+					opponent.duel_won=parseInt(opponent.duel_won)+1;
 					duel.winner=opponent.reference_token;
 					//FCM to users
 					var data_message= { request_type: "lost_message", user: opponent.username };
