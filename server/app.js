@@ -28,8 +28,7 @@ app.use(function(req,res,next){
 	res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Expose-Headers', 'x-auth');
     res.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE");
-    res.setHeader('Access-Control-Allow-Headers','Origin, X-Requested-With,content-type, Accept , x-auth');
-  	res.contentType('text/plain')
+  	res.contentType('text/plain');
 	next();
 });
 router.use('/missions',missionRoutes);

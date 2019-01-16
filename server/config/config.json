@@ -1,14 +1,14 @@
 {
 	"test":{
-		"PORT" : 8000,
+		"PORT" : 8080,
 		"MONGODB_URI" : "mongodb://root:root123@ds113692.mlab.com:13692/attendance"
 	},
 	"development" : {
-		"PORT" : 8000,
+		"PORT" : 8080,
 		"MONGODB_URI" : "mongodb://127.0.0.1:27017/loot",
 		"USERNAME" : "admin",
 		"PASSWORD" : "ncs2018",
 		"JWT_SECRET" : "skfnihsfbdibfidhc",
-		"serverKey":"kshfkshfkhkdzfucosncs"
+		"serverKey": "AAAA5VtVz30:APA91bFHGporSDr7ABSgdB8HE79mDm6Io0guaQDN93uF4lrF2e1bY4eEFyXr6Ms4PIfjgovD4Dx9qQIzTBVya8-PQ5dxWbYQ7KusEjW-arB6hdN1F6-ChZdeihATIZ7hYiVcDwdG9lF-"
 	}
 }
