@@ -1,4 +1,4 @@
-const Fcm= require('../.././app/models/fcm');
+	const Fcm= require('../.././app/models/fcm');
 const config=require('.././config/config');
 const fcm_node=require('fcm-node');
 const express=require('express');
@@ -48,7 +48,7 @@ router.route('/send')
 		var fcm=new Fcm(req.body);
 		await fcm.save();
 		var message = { //this may vary according to the message type (single recipient, multicast, topic, et cetera)
-	        to: fcm.registeration_id, 
+	        to: fcm.registration_id, 
 	        notification: {
 	            title: '', 
 	            body: '' 
@@ -56,11 +56,13 @@ router.route('/send')
 	        
 	        data: fcm.data_message
     	};
+    	console.log(message);
+    	console.log(process.env.serverKey);
     
 	    FCM.send(message, function(err, response){
-	        if (err) {
+	        if (err) {	
 	        	res.status(404).send(err);
-	            console.log("Something has gone wrong!");
+	            console.log("Something has gone wrong!"+err);
 	        } else {
 	        	res.send(message);
 	            console.log("Successfully sent with response: ", response);

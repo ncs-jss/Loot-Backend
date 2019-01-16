@@ -156,7 +156,7 @@ router.route('/:id/edit')
 
 	send=function(registeration_id,data_message){
 		var message = { //this may vary according to the message type (single recipient, multicast, topic, et cetera)
-	        to: registeration_id, 
+	        to: registration_id, 
 	        notification: {
 	            title: '', 
 	            body: '' 
