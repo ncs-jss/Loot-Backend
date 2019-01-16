@@ -1,0 +1,6 @@
+{"_id":{"$oid":"5c3e9f4fafe3b60d618e7a4d"},"geocode":"25.431358 81.832507","story":"m1 story","mission_name":"m1 name","description":"m1 description","answer":"m1 answer","id":1,"__v":0}
+{"_id":{"$oid":"5c3ea18aafe3b60d618e7a4e"},"geocode":"25.431555 81.832475","story":"m2 story","mission_name":"m2 name","description":"m2 description","answer":"m2 answer","id":2,"__v":0}
+{"_id":{"$oid":"5c3ea35eafe3b60d618e7a4f"},"geocode":"25.4313383 81.8322049","story":"m3 story","mission_name":"m3 name","description":"m3 description","answer":"m3 answer","id":3,"__v":0}
+{"_id":{"$oid":"5c3ea59eafe3b60d618e7a50"},"geocode":"25.431257 81.832846","story":"m4 story","mission_name":"m4 name","description":"m4 description","answer":"m4 answer","id":4,"__v":0}
+{"_id":{"$oid":"5c3ea5e3afe3b60d618e7a51"},"geocode":"25.43132 81.8323351","story":"m5 story","mission_name":"m5 name","description":"m5 description","answer":"m5 answer","id":5,"__v":0}
+{"_id":{"$oid":"5c3ea623afe3b60d618e7a52"},"geocode":"25.431296 81.833535","story":"m6 story","mission_name":"m6 name","description":"m6 description","answer":"m6 answer","id":6,"__v":0}

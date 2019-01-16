@@ -1,0 +1,3 @@
+{"_id":{"$oid":"5c3eb688cd4e9018b0d06eda"},"challenger_rt":"3C660WDoSuYqC522qmY7RDoTxnQ3","opponent_rt":"02qWicAHtOPF9tCbNZqaTZ2FzdH3","stake":"200","id":"5c3eb688cd4e9018b0d06eda","__v":0}
+{"_id":{"$oid":"5c3eb7360f125118fc2ef66d"},"challenger_rt":"3C660WDoSuYqC522qmY7RDoTxnQ3","opponent_rt":"02qWicAHtOPF9tCbNZqaTZ2FzdH3","stake":"200","id":"5c3eb7360f125118fc2ef66d","__v":0}
+{"_id":{"$oid":"5c3eb9c7dc2d4f1bd088684e"},"challenger_rt":"3C660WDoSuYqC522qmY7RDoTxnQ3","opponent_rt":"02qWicAHtOPF9tCbNZqaTZ2FzdH3","stake":"100","id":"5c3eb9c7dc2d4f1bd088684e","__v":0,"challenger_tap_count":"45","opponent_tap_count":"50","winner":"3C660WDoSuYqC522qmY7RDoTxnQ3"}
