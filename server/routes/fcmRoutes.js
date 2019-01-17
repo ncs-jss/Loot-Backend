@@ -45,6 +45,7 @@ router.route('/send')
  * 	HTTP/1.1 401 NOT Authenticated
 */
 	.post(async function(req,res){
+		res.set('Content-Type', 'application/json');
 		var fcm=new Fcm(req.body);
 		await fcm.save();
 		var message = { //this may vary according to the message type (single recipient, multicast, topic, et cetera)
