@@ -176,10 +176,12 @@ router.route('/register')
  * 	HTTP/1.1 401 Unauthorised
 */
 	.post(function(req,res){
+		console.log(req.body);
 		var user=new User(req.body);
 		user.save().then(function(user){
 			res.status(200).send(user);
 		}).catch(function(e){
+			console.log(e);
 			res.status(400).send(e);
 		})
 	});
