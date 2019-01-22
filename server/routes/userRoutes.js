@@ -1,7 +1,7 @@
 const User= require('../.././app/models/user');
 const config=require('.././config/config');
 const express=require('express');
-// const jwt=require('jsonwebtoken');
+const jwt=require('jsonwebtoken');
 const router=express.Router();
 
 
