@@ -45,7 +45,7 @@ router.route('/')
  * @apiErrorExample {json} Find error
  * 	HTTP/1.1 401 NOT Authenticated
 */
-	.get(async function(req,res){
+	.get(authenticate, async function(req,res){
 		var mission=await Mission.find();
 		res.send(mission);
 	});
@@ -73,7 +73,7 @@ router.route('/:id')
  * @apiErrorExample {json} Find error
  * 	HTTP/1.1 401 NOT Authenticated
 */
-	.get(async function(req,res){
+	.get(authenticate, async function(req,res){
 		var id=req.params.id;
 		var mission=await Mission.findOne({id});
 		res.send(mission);
@@ -102,7 +102,7 @@ router.route('/:id')
  * @apiErrorExample {json} Find error
  * 	HTTP/1.1 401 NOT Authenticated
 */
-	.post(function(req,res){
+	.post(authenticate, function(req,res){
 		var id=req.params.id;
 		Mission.update({id},req.body).then(function(mission){
 			res.send(mission);
@@ -134,7 +134,7 @@ router.route('/')
  * @apiErrorExample {json} Find error
  * 	HTTP/1.1 401 Unauthorised
 */
-	.post(function(req,res){
+	.post(authenticate, function(req,res){
 		var mission=new Mission(req.body);
 		mission.save().then(function(mission){
 			res.status(200).send(mission);

@@ -44,7 +44,7 @@ router.route('/send')
  * @apiErrorExample {json} Find error
  * 	HTTP/1.1 401 NOT Authenticated
 */
-	.post(async function(req,res){
+	.post(authenticate, async function(req,res){
 		res.set('Content-Type', 'application/json');
 		var fcm=new Fcm(req.body);
 		await fcm.save();

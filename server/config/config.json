@@ -7,7 +7,7 @@
 		"PORT" : 8080,
 		"MONGODB_URI" : "mongodb://127.0.0.1:27017/loot",
 		"USERNAME" : "admin",
-		"PASSWORD" : "ncs2018",
+		"PASSWORD" : "loot2019",
 		"JWT_SECRET" : "skfnihsfbdibfidhc",
 		"serverKey": "AAAAr9pGyW8:APA91bG3x9xzIzn_mXnDNbZ88-GT5_rqFio74vx-np1GjGFtnxl7uTWaRVxLNg9gk6rMAU5jaiKKP2Lpq_Sv4hJ82A49NQ72YF3fbu9OY6Unb96p3ESFD9wjSPdl_bzeBd8udng300dd"
 	}
