@@ -1,7 +1,7 @@
 const User= require('../.././app/models/user');
 const config=require('.././config/config');
 const express=require('express');
-// const jwt=require('jsonwebtoken');
+const jwt=require('jsonwebtoken');
 const router=express.Router();
 
 
@@ -45,7 +45,7 @@ router.route('/leaderboard')
  * @apiErrorExample {json} Find error
  * 	HTTP/1.1 401 NOT Authenticated
 */
-	.get(async function(req,res){
+	.get(authenticate, async function(req,res){
 		var users=await User.find().sort({score:-1}).limit(10);
 		// users.sort(function (a, b) {
 		//   return b.score - a.score;
@@ -85,7 +85,8 @@ router.route('/')
 */
 	.get(async function(req,res){
 			var users=await User.find();
-			res.send(users);	
+			res.send(users);
+			console.log(jwt.sign({username:process.env.USERNAME,password:process.env.PASSWORD},process.env.JWT_SECRET).toString());	
 	});
 
 router.route('/:id')
@@ -111,7 +112,7 @@ router.route('/:id')
  * @apiErrorExample {json} Find error
  * 	HTTP/1.1 401 NOT Authenticated
 */
-	.get(async function(req,res){
+	.get(authenticate,async function(req,res){
 		var reference_token=req.params.id;
 		console.log(reference_token);
 		
@@ -143,7 +144,7 @@ router.route('/:id')
  * @apiErrorExample {json} Find error
  * 	HTTP/1.1 401 NOT Authenticated
 */
-	.post(function(req,res){
+	.post(authenticate,function(req,res){
 		var reference_token=req.params.id;
 		User.findOneAndUpdate({reference_token:reference_token},req.body,{new: true}).then(function(user){
 			res.send(user);
@@ -175,8 +176,8 @@ router.route('/register')
  * @apiErrorExample {json} Find error
  * 	HTTP/1.1 401 Unauthorised
 */
-	.post(function(req,res){
-		console.log(req.body);
+
+	.post(authenticate,function(req,res){
 		var user=new User(req.body);
 		user.save().then(function(user){
 			res.status(200).send(user);

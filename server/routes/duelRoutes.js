@@ -4,6 +4,7 @@ const config=require('.././config/config');
 const express=require('express');
 const router=express.Router();
 const fcm_node=require('fcm-node');
+const jwt=require('jsonwebtoken');
 var FCM=new fcm_node(process.env.serverKey);
 
 
@@ -46,12 +47,12 @@ router.route('/')
  * @apiErrorExample {json} Find error
  * 	HTTP/1.1 401 NOT Authenticated
 */
-	.get(async function(req,res){
+	.get(authenticate, async function(req,res){
 		var duels=await Duel.find();
 		res.send(duels);
 	})
 
-	.post(async function(req,res){
+	.post(authenticate, async function(req,res){
 		var duel= new Duel(req.body);
 		duel.id=duel._id;
 		var challenger=await User.findOne({reference_token:duel.challenger_rt});
@@ -88,7 +89,7 @@ router.route('/:id/edit')
  * @apiErrorExample {json} Find error
  * 	HTTP/1.1 401 NOT Authenticated
 */
-	.post(async function(req,res){
+	.post(authenticate,async function(req,res){
 		var id=req.params.id;
 		Duel.findOneAndUpdate({id},req.body).then(async function(duel){
 			if(duel.challenger_tap_count!=null&&duel.opponent_tap_count!=null && duel.winner==null){

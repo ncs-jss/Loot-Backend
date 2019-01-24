@@ -2,6 +2,7 @@
 const config=require('.././config/config');
 const fcm_node=require('fcm-node');
 const express=require('express');
+const jwt=require('jsonwebtoken');
 const router=express.Router();
 var FCM=new fcm_node(process.env.serverKey);
 
@@ -44,8 +45,7 @@ router.route('/send')
  * @apiErrorExample {json} Find error
  * 	HTTP/1.1 401 NOT Authenticated
 */
-	.post(async function(req,res){
-		console.log(req.body);
+	.post(authenticate, async function(req,res){
 		res.set('Content-Type', 'application/json');
 		var fcm=new Fcm(req.body);
 		await fcm.save();
