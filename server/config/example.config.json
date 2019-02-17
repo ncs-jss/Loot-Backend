@@ -1,0 +1,14 @@
+{
+	"test":{
+		"PORT" : 8089,
+		"MONGODB_URI" : "mongodb://127.0.0.1:27017/test"
+	},
+	"development" : {
+		"PORT" : 8089,
+		"MONGODB_URI" : "mongodb://127.0.0.1:27017/name",
+		"USERNAME" : "username",
+		"PASSWORD" : "password",
+		"JWT_SECRET" : "skfndsdxsadxsdxsdx",
+		"serverKey": "bdfbdcksnbkbxkwans,dnxkwnsa,zndxkneskndxkjwwsahncxkj"
+	}
+}

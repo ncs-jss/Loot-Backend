@@ -114,17 +114,12 @@ router.route('/:id/edit')
 
 					//FCM to users
 
-					var data_message= { request_type: "won_message", user: opponent.username };
+					var data_message= { request_type: "won_message", user: opponent.username, score:challenger.score };
 					send(challenger.fcm_token,data_message);
 					data_message.request_type='lost_message';
 					data_message.user=challenger.username;
+					data_message.score=opponent.score;
 					send(opponent.fcm_token,data_message);
-
-
-
-
-
-
 
 				}
 				else if(opponent_tap_count>challenger_tap_count){
@@ -134,10 +129,11 @@ router.route('/:id/edit')
 					opponent.duel_won=parseInt(opponent.duel_won)+1;
 					duel.winner=opponent.reference_token;
 					//FCM to users
-					var data_message= { request_type: "lost_message", user: opponent.username };
+					var data_message= { request_type: "lost_message", user: opponent.username, score:challenger.score };
 					send(challenger.fcm_token,data_message);
 					data_message.request_type='won_message';
 					data_message.user=challenger.username;
+					data_message.score=opponent.score;
 					send(opponent.fcm_token,data_message);
 
 				}
