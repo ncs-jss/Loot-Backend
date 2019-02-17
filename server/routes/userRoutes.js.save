@@ -173,7 +173,6 @@ router.route('/register')
  *			"message":"Successful/Invalid Credentials"
  *		}
  * 	
- * @apiErrorExample {json} Find error
  * 	HTTP/1.1 401 Unauthorised
 */
 

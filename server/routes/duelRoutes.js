@@ -91,8 +91,16 @@ router.route('/:id/edit')
 */
 	.post(authenticate,async function(req,res){
 		var id=req.params.id;
-		Duel.findOneAndUpdate({id},req.body).then(async function(duel){
-			if(duel.challenger_tap_count!=null&&duel.opponent_tap_count!=null && duel.winner==null){
+		console.log(req.body);
+		var duel=await Duel.findOneAndUpdate({id},req.body);
+		duel= await Duel.findOne({id});
+		console.log(duel);
+		console.log(duel.challenger_tap_count);
+		console.log(duel.opponent_tap_count);
+	
+		/*Duel.findOneAndUpdate({id},req.body).then(async function(duel){
+			console.log(duel);*/
+			if(duel.challenger_tap_count!=undefined&&duel.opponent_tap_count!=undefined && duel.winner==undefined){
 				var challenger_tap_count=parseInt(duel.challenger_tap_count);
 				var opponent_tap_count=parseInt(duel.opponent_tap_count);
 				var challenger=await User.findOne({reference_token:duel.challenger_rt});
@@ -150,12 +158,12 @@ router.route('/:id/edit')
 				// console.log(opponent);
 			}
 			res.send(duel);
-		}).catch(function(e){
+	/*	}).catch(function(e){
 			res.status(400).send(e);
-		})
+		})*/
 	});	
 
-	send=function(registeration_id,data_message){
+	send=function(registration_id,data_message){
 		var message = { //this may vary according to the message type (single recipient, multicast, topic, et cetera)
 	        to: registration_id, 
 	        notification: {
@@ -166,13 +174,12 @@ router.route('/:id/edit')
 	        data: data_message
     	};
     
-	    FCM.send(message, function(err, response){
+	    FCM.send(message, function(err, res){
 	        if (err) {
-	        	res.status(404).send(err);
 	            console.log("Something has gone wrong!");
 	        } else {
-	        	res.send(message);
-	            console.log("Successfully sent with response: ", response);
+
+	            console.log("Successfully sent with response: ", res);
 	        }
 	    });
 	}
