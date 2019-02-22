@@ -22,6 +22,17 @@ authenticate=function(req,res,next){
 	}	
 };
 
+router.route('/adminLogin')
+	.post(async function(req,res){
+		console.log(req.body);
+		if(req.body.username==process.env.USERNAME&&req.body.password==process.env.PASSWORD){
+			var x_auth=jwt.sign({username:process.env.USERNAME,password:process.env.PASSWORD},process.env.JWT_SECRET).toString();
+			res.header('x-auth',x_auth).send({message:'Successful'});
+		}
+		else{
+			res.status(401).send({message:'Invalid Credentials'});
+		}
+	});
 router.route('/leaderboard')
 
 
@@ -86,7 +97,7 @@ router.route('/')
 	.get(async function(req,res){
 			var users=await User.find();
 			res.send(users);
-			console.log(jwt.sign({username:process.env.USERNAME,password:process.env.PASSWORD},process.env.JWT_SECRET).toString());	
+			// console.log();	
 	});
 
 router.route('/:id')
