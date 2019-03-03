@@ -47,7 +47,7 @@ router.route('/')
  * 	HTTP/1.1 401 NOT Authenticated
 */
 	.get(authenticate, async function(req,res){
-		var mission=await Mission.find();
+		var mission=await Mission.find().sort({id:1});
 		res.send(mission);
 	});
 

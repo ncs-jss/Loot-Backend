@@ -58,7 +58,7 @@ router.route('/leaderboard')
 */
 	.get(authenticate, async function(req,res){
 		var users=await User.find().sort({score:-1}).collation({locale: "en_US", numericOrdering: true})
-;
+.l
 		// users.sort(function (a, b) {
 		//   return b.score - a.score;
 		// });
