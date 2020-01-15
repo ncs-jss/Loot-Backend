@@ -25,7 +25,7 @@
     "helmet": "^3.13.0",
     "jsonwebtoken": "^8.3.0",
     "lodash": "^4.17.10",
-    "mongoose": "^5.2.12",
+    "mongoose": "^5.7.5",
     "redis": "^2.8.0",
     "response-time": "^2.3.2"
   }
